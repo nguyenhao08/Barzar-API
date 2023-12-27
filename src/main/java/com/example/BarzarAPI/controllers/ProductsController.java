@@ -8,6 +8,8 @@ import com.example.BarzarAPI.repositories.ProductsRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,6 +37,13 @@ public class ProductsController {
   @GetMapping
   public List<Products> getAllProducts() {
     return productsRepository.findAll();
+  }
+
+  @GetMapping("/latest")
+  public List<Products> getLatestProducts() {
+    // Sắp xếp theo id giảm dần và giới hạn kết quả trả về là 3 sản phẩm
+    return productsRepository.findAll(
+        PageRequest.of(0, 3, Sort.by(Sort.Direction.DESC, "id"))).getContent();
   }
 
   @GetMapping("/{id}")
