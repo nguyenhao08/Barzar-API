@@ -11,6 +11,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,7 @@ public class AuthenticationController {
   private UserDetailsServiceImpl userDetailsService;
 
   @PostMapping("/authenticate")
+  @CrossOrigin(origins = "http://localhost:3000")
   public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest,
       HttpServletResponse response) throws IOException {
     try {
@@ -47,8 +49,13 @@ public class AuthenticationController {
 
     final String username = userDetails.getUsername();
 
+    String roles = "user";
+    if ("admin@gmail.com".equals(username) || "admin@gmail.com".equals(username)) {
+      roles = "admin";
+    }
+
     final String jwt = jwtUtil.generateToken(userDetails.getUsername());
 
-    return ResponseEntity.ok(new AuthenticationResponse(username, jwt));
+    return ResponseEntity.ok(new AuthenticationResponse(username, jwt, roles));
   }
 }

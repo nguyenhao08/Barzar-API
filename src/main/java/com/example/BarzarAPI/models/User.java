@@ -17,11 +17,9 @@ public class User {
 
   private String password;
 
-  // Constructors, getter/setter methods, and other annotations (if any)
+  private String roles;
 
-  // Constructor
-  public User() {
-  }
+  // Constructors, getter/setter methods, and other annotations (if any)
 
   // Getters and Setters
   public Long getId() {

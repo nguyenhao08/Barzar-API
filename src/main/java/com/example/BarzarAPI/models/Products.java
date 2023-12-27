@@ -37,9 +37,8 @@ public class Products {
   @Column
   private String images;
 
-  // @ManyToOne
-  // @JoinColumn(name = "categoryId", referencedColumnName = "id")
-  // private Category category;
+  @Column
+  private String category;
 
   public Long getId() {
     return id;
@@ -87,6 +86,15 @@ public class Products {
 
   public void setImages(String images) {
     this.images = images;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+
   }
 
 }

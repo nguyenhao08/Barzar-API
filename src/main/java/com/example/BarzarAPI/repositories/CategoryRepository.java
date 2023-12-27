@@ -10,8 +10,5 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-  // @Query("SELECT c FROM Category c WHERE c.title = :title AND c.description =
-  // :description AND c.id = :id")
-  // Category findCategory(@Param("title") String title, @Param("description")
-  // String description, @Param("id") Long id);
+
 }

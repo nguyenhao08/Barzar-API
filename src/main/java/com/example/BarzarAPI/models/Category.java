@@ -18,6 +18,10 @@ public class Category {
   @Column
   private String description;
 
+  // @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval =
+  // true)
+  // private List<Products> products;
+
   public Long getId() {
     return id;
   }
@@ -35,7 +39,7 @@ public class Category {
   }
 
   public String getDescription() {
-    return title;
+    return description;
   }
 
   public void setDescription(String description) {
