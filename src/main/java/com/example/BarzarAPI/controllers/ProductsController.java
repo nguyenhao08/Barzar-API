@@ -47,7 +47,7 @@ public class ProductsController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<?> getCategoryById(@PathVariable Long id) {
+  public ResponseEntity<?> getProductById(@PathVariable Long id) {
     // Kiểm tra xem sản phẩm có tồn tại không
     Optional<Products> productOptional = productsRepository.findById(id);
 
