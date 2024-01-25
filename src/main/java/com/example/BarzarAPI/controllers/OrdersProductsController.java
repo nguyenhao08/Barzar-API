@@ -26,7 +26,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/orders")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "https://react-workshop-wheat.vercel.app", "http://localhost:3000" })
 public class OrdersProductsController {
   @Autowired
   private OrdersProductsRepository ordersProductsRepository;

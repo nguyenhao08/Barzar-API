@@ -17,7 +17,7 @@ public class SignUpController {
   private AuthService authService;
 
   @PostMapping("/sign-up")
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = { "https://react-workshop-wheat.vercel.app", "http://localhost:3000" })
   public ResponseEntity<?> signupUser(@RequestBody SignUpDTO signupDTO) {
     UserDTO createdUser = authService.createUser(signupDTO);
     if (createdUser == null) {

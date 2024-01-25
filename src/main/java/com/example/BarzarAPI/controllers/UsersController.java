@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "https://react-workshop-wheat.vercel.app", "http://localhost:3000" })
 public class UsersController {
   @Autowired
   private UserRepository userRepository;

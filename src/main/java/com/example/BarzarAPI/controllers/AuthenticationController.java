@@ -32,7 +32,7 @@ public class AuthenticationController {
   private UserDetailsServiceImpl userDetailsService;
 
   @PostMapping("/authenticate")
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = { "https://react-workshop-wheat.vercel.app", "http://localhost:3000" })
   public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest,
       HttpServletResponse response) throws IOException {
     try {
